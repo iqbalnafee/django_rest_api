@@ -1,0 +1,54 @@
+
+1. pip install pipenv //only for first time to install pipenv
+
+2. pipenv shell //create a virtual environment
+
+3. pipenv install django djangorestframework django-rest-knox // to install django not globally but only only for this project. django-rest-knox for token authentication
+
+4. django-admin startproject leadmanager // to create project named pollster
+
+5. manage.py is the CLI for django. Using this we can create migrations,run server
+
+6. cd leadmanager
+
+7. ctrl+shift+p  and type python and select with your folder's name pipenv
+
+8. python manage.py startapp leads
+
+9. When you create a new app, make sure add it in settings.py in INSTALLED_APPS = []. for our we add leads.rest_framework
+
+10. Now we will create our model in leads folder models.py . Model is nothing but structure of our table i.e column_name,column_type
+
+11. Migrations are Django's way of propagating changes you make to your models (adding a field, deleting a model, etc.) into your database schema
+
+12. python manage.py makemigrations leads // leads's models.py can have more than one class
+
+    // this will also create migrations folder with 0001_inital.py 
+    // If we add/ delete any column in our models.py we need to again run this command and this will change 0001_inital.py (may be name)
+
+
+13. python manage.py migrate // to migrate/create our app's table
+
+14. In our leads folder create a file called serializers.py and edit this file
+
+// also read https://www.django-rest-framework.org/api-guide/serializers/ where we make copy UserSerializer with meta class
+
+15. Now we actually create our api
+
+16. In our leads folder create a file called api.py and edit this file
+
+17. Django REST framework allows you to combine the logic for a set of related views in a single class, called a ViewSet. In other frameworks you may also find conceptually similar implementations named something like 'Resources' or 'Controllers'.
+
+Django REST framework allows you to combine the logic for a set of related views in a single class, called a ViewSet. In other frameworks you may also find conceptually similar implementations named something like 'Resources' or 'Controllers'.
+
+// viewsets allows ys to create a full crud api without having to specify explicit methods
+
+https://www.django-rest-framework.org/api-guide/viewsets/ visit for more info
+
+18. change projectfolder urlpattern in urls.py
+
+19. Now create urls.py in app folder
+
+20. // before editing your app folder's  urls.py check your previous project's app folder's urls.py
+
+21. python manage.py runserver 8001
